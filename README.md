@@ -1,4 +1,4 @@
-# [SCSS-BEM](https://github.com/PSDCoder/scss-bem/demo)
+# [SCSS-BEM](http://psdcoder.github.io/scss-bem/demo/index.html)
 
 ## Description
 Mixins for simplify writing css in BEM-style
