@@ -1,0 +1,26 @@
+.menu {
+  margin: 0 0 10px 0;
+  padding: 0;
+  list-style: none; }
+  .menu_type_horizontal {
+    overflow: hidden; }
+    .menu_type_horizontal .menu__item {
+      float: left; }
+  .menu__item {
+    display: block; }
+    .menu__item_state_active .menu__link {
+      background-color: #ccc; }
+  .menu__link {
+    display: block;
+    padding: 10px 20px;
+    color: #444;
+    background-color: #fff;
+    text-decoration: none; }
+    .menu__link:hover {
+      background-color: #ddd; }
+    .menu__link:active {
+      background-color: #bbb; }
+
+
+
+/*# sourceMappingURL=styles.css.map */

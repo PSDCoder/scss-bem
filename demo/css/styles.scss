@@ -1,0 +1,41 @@
+@import '../../src/_scss-bem-mixins';
+
+@include block(menu) {
+  margin: 0 0 10px 0;
+  padding: 0;
+  list-style: none;
+
+  @include modifier(type, horizontal) {
+    overflow: hidden;
+
+    @include contains(item) {
+      float: left;
+    }
+  }
+
+  @include element(item) {
+    display: block;
+
+    @include state(active) {
+      @include contains(link) {
+        background-color: #ccc;
+      }
+    }
+  }
+
+  @include element(link) {
+    display: block;
+    padding: 10px 20px;
+    color: #444;
+    background-color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #ddd;
+    }
+
+    &:active {
+      background-color: #bbb;
+    }
+  }
+}

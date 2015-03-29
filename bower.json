@@ -1,0 +1,23 @@
+{
+  "name": "scss-bem",
+  "version": "0.0.0",
+  "authors": [
+    "Pavel Grinchenko <psdcoder@gmail.com>"
+  ],
+  "description": "Mixins for simplify writing css in BEM-style",
+  "main": "src/scss-bem-mixins.scss",
+  "keywords": [
+    "scss",
+    "sass",
+    "bem",
+    "mixin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
