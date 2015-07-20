@@ -1,0 +1,7 @@
+@mixin contains($element-name) {
+  $block-name: block(&);
+
+  .#{$block-name}#{$bem-element-prefix}#{$element-name} {
+    @content
+  }
+}

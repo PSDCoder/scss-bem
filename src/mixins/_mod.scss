@@ -1,0 +1,12 @@
+@mixin modifier($modifier-name, $modifier-value: null) {
+  @if $modifier-value != null {
+    &#{$bem-modifier-prefix}#{$modifier-name}#{$bem-modifier-prefix}#{$modifier-value} {
+      @content
+    }
+  }
+  @else {
+    &#{$bem-modifier-prefix}#{$modifier-name} {
+      @content
+    }
+  }
+}

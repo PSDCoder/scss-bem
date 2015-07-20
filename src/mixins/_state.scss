@@ -1,0 +1,5 @@
+@mixin state($state-name) {
+  &#{$bem-modifier-prefix}state#{$bem-modifier-prefix}#{$state-name} {
+    @content
+  }
+}

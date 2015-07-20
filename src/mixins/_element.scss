@@ -1,0 +1,5 @@
+@mixin element($element-name) {
+  &#{$bem-element-prefix}#{$element-name} {
+    @content
+  }
+}

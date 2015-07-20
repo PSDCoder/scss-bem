@@ -1,11 +1,34 @@
-@import '../../src/_scss-bem-mixins';
+@import '../../src/scss-bem';
 
 @include block(menu) {
   margin: 0 0 10px 0;
   padding: 0;
   list-style: none;
 
-  @include modifier(type, horizontal) {
+  @include modifier(colored) {
+    $base: #4c7367;
+
+    @include contains(link) {
+      color: mix(#fff, $base, 90%);
+      background-color: $base;
+
+      &:hover {
+        background-color: mix(#fff, $base, 10%);
+      }
+    }
+
+    @include element(item) {
+      display: block;
+
+      @include state(active) {
+        @include contains(link) { //@todo fix it .menu_colored__item_state_active .menu_colored__link
+          background-color: mix(#000, $base, 10%);
+        }
+      }
+    }
+  }
+
+  @include modifier(type, hor) {
     overflow: hidden;
 
     @include contains(item) {
