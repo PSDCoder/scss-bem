@@ -1,0 +1,16 @@
+@function str-index-modifier($selector) {
+  $index-modifier: str_index($selector, $bem-modifier-prefix);
+  $index-element: str-index-element($selector);
+
+  @if $index-modifier == $index-element and $index-modifier != null {
+    $element-prefix-end: $index-element + str_length($bem-element-prefix);
+    $selector: str_slice($selector, $element-prefix-end, str_length($selector));
+    $index-modifier: str_index($selector, $bem-modifier-prefix);
+
+    @if $index-modifier != null {
+      $index-modifier: $element-prefix-end - 1 + $index-modifier;
+    }
+  }
+
+  @return $index-modifier;
+}

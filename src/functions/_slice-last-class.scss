@@ -1,0 +1,4 @@
+@function slice-last-class($selector) {
+  $list: parent-to-classes-list($selector);
+  @return nth($list, length($list));
+}

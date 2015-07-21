@@ -1,0 +1,15 @@
+@mixin element($name) {
+  @at-root {
+    #{&}__#{$name} {
+      @content;
+    }
+  }
+}
+
+.block {
+  @include element(element) {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+}

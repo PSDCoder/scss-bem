@@ -1,6 +1,5 @@
-@mixin block($block-name) {
+@mixin b($block-name) {
   .#{$block-name} {
     @content;
   }
-
 }

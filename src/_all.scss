@@ -1,10 +1,16 @@
-@import 'functions/block';
-@import 'functions/element';
-@import 'functions/modifier';
+@import 'functions/remove-start-dot';
+@import 'functions/parent-to-string';
+@import 'functions/parent-to-classes-list';
+@import 'functions/str-index-element';
+@import 'functions/str-index-modifier';
+@import 'functions/slice-first-class';
+@import 'functions/slice-last-class';
+@import 'functions/b';
+@import 'functions/e';
 
-@import 'mixins/block';
-@import 'mixins/element';
-@import 'mixins/mod';
+@import 'mixins/b';
+@import 'mixins/e';
+@import 'mixins/m';
 @import 'mixins/state';
-@import 'mixins/contains';
+@import 'mixins/contain';
 @import 'mixins/with';

@@ -1,0 +1,3 @@
+@function str-index-element($selector) {
+  @return str_index($selector, $bem-element-prefix);
+}

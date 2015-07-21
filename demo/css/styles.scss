@@ -1,14 +1,14 @@
 @import '../../src/scss-bem';
 
-@include block(menu) {
+@include b(menu) {
   margin: 0 0 10px 0;
   padding: 0;
   list-style: none;
 
-  @include modifier(colored) {
+  @include m(colored) {
     $base: #4c7367;
 
-    @include contains(link) {
+    @include contain(link) {
       color: mix(#fff, $base, 90%);
       background-color: $base;
 
@@ -17,36 +17,37 @@
       }
     }
 
-    @include element(item) {
+    @include contain(item) {
       display: block;
 
       @include state(active) {
-        @include contains(link) { //@todo fix it .menu_colored__item_state_active .menu_colored__link
+        @include contain(link) {
           background-color: mix(#000, $base, 10%);
         }
       }
     }
   }
 
-  @include modifier(type, hor) {
+  @include m(type, hor) {
     overflow: hidden;
 
-    @include contains(item) {
+    @include contain(item) {
       float: left;
     }
   }
 
-  @include element(item) {
+
+  @include e(item) {
     display: block;
 
     @include state(active) {
-      @include contains(link) {
+      @include contain(link) {
         background-color: #ccc;
       }
     }
   }
 
-  @include element(link) {
+  @include e(link) {
     display: block;
     padding: 10px 20px;
     color: #444;

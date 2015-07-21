@@ -22,10 +22,18 @@ gulp.task('serve', ['scss', 'watch'], function() {
 });
 
 gulp.task('scss', function () {
-    return gulp.src(paths.demo.scss)
-        .pipe($.sourcemaps.init())
-        .pipe($.sass())
-        .pipe($.plumber())
+    //return gulp.src(paths.demo.scss)
+    //    .pipe($.sourcemaps.init())
+    //    .pipe($.sass())
+    //    .pipe($.plumber())
+    //    .pipe($.sourcemaps.write('./'))
+    //    .pipe(gulp.dest(path.dirname(paths.demo.scss)))
+    //    .pipe(browserSync.stream({ match: '**/*.css' }));
+
+    return $.rubySass(paths.demo.scss, { sourcemap: true })
+        .on('error', function (err) {
+            console.error('Gulp ruby sass error', err.message);
+        })
         .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest(path.dirname(paths.demo.scss)))
         .pipe(browserSync.stream({ match: '**/*.css' }));
@@ -39,4 +47,28 @@ gulp.task('watch', function () {
         gulp.start('scss');
     });
     $.watch(paths.demo.html).on('change', reload);
+});
+
+gulp.task('test-sass', function () {
+    var testFile = 'test-sass/test.scss';
+    var resultDir = 'test-sass/';
+
+    //lib-sass
+    gulp.src(testFile)
+        .pipe($.sass())
+        .pipe($.plumber())
+        .pipe($.rename({
+            suffix: '-libsass'
+        }))
+        .pipe(gulp.dest(resultDir));
+
+    //ruby-sass
+    $.rubySass(testFile)
+        .on('error', function (err) {
+            console.error('Gulp ruby sass error', err.message);
+        })
+        .pipe($.rename({
+            suffix: '-rubysass'
+        }))
+        .pipe(gulp.dest(resultDir));
 });

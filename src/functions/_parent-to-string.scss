@@ -1,0 +1,3 @@
+@function parent-to-string($selector) {
+  @return #{nth($selector, 1)};
+}

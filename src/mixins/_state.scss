@@ -1,5 +1,10 @@
 @mixin state($state-name) {
-  &#{$bem-modifier-prefix}state#{$bem-modifier-prefix}#{$state-name} {
+  $parent: e(&);
+  @if $parent == null {
+    $parent: b(&);
+  }
+
+  @at-root .#{$parent + $bem-modifier-prefix + state + $bem-modifier-prefix + $state-name} {
     @content
   }
 }

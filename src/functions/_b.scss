@@ -1,0 +1,15 @@
+@function b($selector) {
+  $class-name: slice-first-class($selector);
+  $start-index: 1;
+  $end-index: str_length($class-name);
+  $end-index-element: str-index-element($class-name);
+  $end-index-modifier: str-index-modifier($class-name);
+
+  @if $end-index-element != null and $end-index-element > $start-index {
+  $end-index: $end-index-element - 1;
+  } @else if $end-index-modifier != null and $end-index-modifier > $start-index {
+    $end-index: $end-index-modifier - 1;
+  }
+
+  @return remove-start-dot(str_slice($class-name, $start-index, $end-index));
+}

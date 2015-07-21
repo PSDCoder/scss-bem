@@ -1,0 +1,18 @@
+@mixin m($modifier-name, $modifier-value: null) {
+  $parent: e(&);
+
+  @if $parent == null {
+    $parent: b(&);
+  }
+
+  @if $modifier-value != null {
+    @at-root .#{$parent + $bem-modifier-prefix + $modifier-name + $bem-modifier-prefix + $modifier-value} {
+      @content
+    }
+  }
+  @else {
+    @at-root .#{$parent + $bem-modifier-prefix + $modifier-name} {
+      @content
+    }
+  }
+}

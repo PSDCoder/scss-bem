@@ -1,0 +1,7 @@
+@function remove-start-dot($class-name) {
+  @if str_index($class-name, '.') == 1 {
+    @return str_slice($class-name, 2, str_length($class-name));
+  } @else {
+    @return $class-name;
+  }
+}
