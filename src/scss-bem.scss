@@ -1,2 +1,21 @@
-@import "variables";
-@import "all";
+$bem-element-prefix: '__' !default;
+$bem-modifier-prefix: '_' !default;
+
+@import 'functions/is_class';
+@import 'functions/str_unclassify';
+@import 'functions/str_trim';
+@import 'functions/str_index_element';
+@import 'functions/str_index_modifier';
+@import 'functions/selector_to_str';
+@import 'functions/selector_to_classes_list';
+@import 'functions/list_join_elements';
+@import 'functions/bem_stats';
+@import 'functions/b';
+@import 'functions/e';
+@import 'functions/be';
+
+@import 'mixins/b';
+@import 'mixins/e';
+@import 'mixins/m';
+@import 'mixins/state';
+@import 'mixins/contain';

@@ -1,10 +1,17 @@
 @mixin state($state-name) {
-  $parent: e(&);
-  @if $parent == null {
-    $parent: b(&);
+  $classes-list: selector_to_classes_list(&);
+  $last-class: nth($classes-list, length($classes-list));
+  $stats: bem_stats($last-class);
+  $object: '';
+  $prefix-classes: list_join_elements($classes-list, length($classes-list) - 1);
+
+  @if map_get($stats, e) {
+    $object: be($last-class);
+  } @else if map_get($stats, b) {
+    $object: b($last-class);
   }
 
-  @at-root .#{$parent + $bem-modifier-prefix + state + $bem-modifier-prefix + $state-name} {
+  @at-root #{$prefix-classes} .#{$object + $bem-modifier-prefix + state + $bem-modifier-prefix + $state-name} {
     @content
   }
 }

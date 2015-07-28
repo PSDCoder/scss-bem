@@ -1,0 +1,18 @@
+@function selector_to_classes_list($selector) {
+  $selector: str_trim(selector_to_str($selector));
+  $separator: ' ';
+  $list: ();
+  $index: str_index($selector, $separator);
+
+  @while $index != null {
+    $item: str_slice($selector, 1, $index - 1);
+    @if $item != '' {
+      $list: append($list, $item);
+    }
+    $selector: str_slice($selector, $index + 1, str_length($selector));
+    $index: str_index($selector, $separator);
+  }
+  $list: append($list, $selector);
+
+  @return $list;
+}

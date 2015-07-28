@@ -1,0 +1,9 @@
+@function selector_to_str($selector) {
+  @if type_of($selector) == list {
+    @return #{nth($selector, 1)};
+  } @else if type_of($selector) == string {
+    @return $selector;
+  }
+
+  @warn 'Selector must be string or list (it for &)';
+}

@@ -1,5 +1,8 @@
 @mixin contain($element-name) {
-  .#{b(&) + $bem-element-prefix + $element-name} {
+  $classes-list: selector_to_classes_list(&);
+  $block: b(nth($classes-list, length($classes-list)));
+
+  @at-root & .#{$block + $bem-element-prefix + $element-name} {
     @content
   }
 }

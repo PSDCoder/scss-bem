@@ -1,4 +1,8 @@
 @mixin e($element-name) {
+  @if map_get(bem_stats(selector_to_str(&)), e) {
+    @error 'Element "#{$element-name}" can\'t be in another element! If you want nest elements then use "contain" mixin';
+  }
+
   @at-root .#{b(&) + $bem-element-prefix + $element-name} {
     @content
   }

@@ -1,13 +1,7 @@
-@function e($selector) {
+@function be($selector) {
   $selector: selector_to_str($selector);
-  $start-index: str_index_element($selector);
+  $start-index: 1;
   $end-index: str_index_modifier($selector);
-
-  @if $start-index == null {
-    @return null;
-  } @else {
-    $start-index: $start-index + 1;
-  }
 
   @if $end-index == null {
     $end-index: str_index($selector, ' ');

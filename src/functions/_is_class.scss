@@ -1,0 +1,3 @@
+@function is_class($str) {
+  @return type_of($str) != string or str_index($str, '.') == 1;
+}

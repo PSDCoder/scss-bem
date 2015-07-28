@@ -1,0 +1,7 @@
+@function str_unclassify($classname) {
+  @if str_index($classname, '.') == 1 {
+    @return str_slice($classname, 2, str_length($classname));
+  } @else {
+    @return $classname;
+  }
+}

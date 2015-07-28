@@ -1,0 +1,12 @@
+@function bem_stats($str) {
+  @if not is_class($str) {
+    @warn 'You must pass classname to "bem_stats" function. Passed: #{$str}';
+  }
+  $class-name: str_unclassify($str);
+
+  @return (
+    b: str_length($class-name) >= 1,
+    e: str_index_element($class-name) != null,
+    m: str_index_modifier($class-name) != null
+  );
+}

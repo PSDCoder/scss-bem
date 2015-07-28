@@ -1,3 +1,0 @@
-@function slice-first-class($selector) {
-  @return nth(parent-to-classes-list($selector), 1);
-}

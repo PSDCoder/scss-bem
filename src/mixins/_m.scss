@@ -1,18 +1,24 @@
 @mixin m($modifier-name, $modifier-value: null) {
+  @if map_get(bem_stats(selector_to_str(&)), m) {
+    @if ($modifier-value == null) {
+      @error 'Modifier "#{$modifier-name}" can\'t be in another modifier!';
+    } @else {
+      @error 'Modifier "#{$modifier-name}" with value "#{$modifier-value}" can\'t be in another modifier!'
+    }
+  }
+
   $parent: e(&);
 
   @if $parent == null {
     $parent: b(&);
   }
+  $class-name: $parent + $bem-modifier-prefix + $modifier-name;
 
   @if $modifier-value != null {
-    @at-root .#{$parent + $bem-modifier-prefix + $modifier-name + $bem-modifier-prefix + $modifier-value} {
-      @content
-    }
+    $class-name: $class-name + $bem-modifier-prefix + $modifier-value;
   }
-  @else {
-    @at-root .#{$parent + $bem-modifier-prefix + $modifier-name} {
-      @content
-    }
+
+  @at-root .#{$class-name} {
+    @content
   }
 }

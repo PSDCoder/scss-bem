@@ -1,19 +1,22 @@
 @import '../../src/scss-bem';
 
+$base: #b7b7b7;
+$colored: #4c7367;
+
 @include b(menu) {
   margin: 0 0 10px 0;
   padding: 0;
   list-style: none;
 
   @include m(colored) {
-    $base: #4c7367;
+    outline: 3px solid mix(#fff, $colored, 35%);
 
     @include contain(link) {
-      color: mix(#fff, $base, 90%);
-      background-color: $base;
+      color: mix(#fff, $colored, 90%);
+      background-color: $colored;
 
       &:hover {
-        background-color: mix(#fff, $base, 10%);
+        background-color: mix(#fff, $colored, 10%);
       }
     }
 
@@ -22,7 +25,11 @@
 
       @include state(active) {
         @include contain(link) {
-          background-color: mix(#000, $base, 10%);
+          background-color: mix(#000, $colored, 10%);
+
+          &:hover {
+
+          }
         }
       }
     }
@@ -36,13 +43,12 @@
     }
   }
 
-
   @include e(item) {
     display: block;
 
     @include state(active) {
       @include contain(link) {
-        background-color: #ccc;
+        background-color: mix(#000, $base, 10%);
       }
     }
   }
@@ -50,12 +56,12 @@
   @include e(link) {
     display: block;
     padding: 10px 20px;
-    color: #444;
-    background-color: #fff;
+    color: mix(#fff, $base, 90%);
+    background-color: $base;
     text-decoration: none;
 
     &:hover {
-      background-color: #ddd;
+      background-color: mix(#fff, $base, 10%);
     }
 
     &:active {

@@ -1,4 +1,8 @@
 @mixin b($block-name) {
+  @if & != null {
+    @error 'Block "#{$block-name}" must be at root level.';
+  }
+
   .#{$block-name} {
     @content;
   }

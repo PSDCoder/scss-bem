@@ -1,0 +1,24 @@
+@function str_trim($str, $symbol: ' ') {
+  @if type_of($str) != string {
+    @error 'You must pass string to str_trim function. Passed: #{$str}';
+  }
+  $len: str_length($str);
+  $index-start: 1;
+  $index-end: -1;
+  $first-is-symbol: str_slice($str, $index-start, $index-start) == $symbol;
+  $last-is-symbol: str_slice($str, $len + $index-end + 1, $index-end) == $symbol;
+
+  //start spaces
+  @while $first-is-symbol {
+    $index-start: $index-start + 1;
+    $first-is-symbol: str_slice($str, $index-start, $index-start) == $symbol;
+  }
+
+  //end spaces
+  @while $last-is-symbol {
+    $index-end: $index-end - 1;
+    $last-is-symbol: str_slice($str, $len + $index-end + 1, $index-end) == $symbol;
+  }
+
+  @return str_slice($str, $index-start, $index-end);
+}
